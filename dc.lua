@@ -23,7 +23,7 @@ for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
     height = LANE_HEIGHT,
     paddingTop = (LANE_HEIGHT - 1) / 2,
     paddingLeft = 1,
-    backgroundColor = 1,
+    backgroundColor = colors.gray,
     text = instrumentName,
   })
 end
@@ -45,6 +45,6 @@ function drawGrid()
   end
 end
 
-monitor.setBackgroundColor(0)
+monitor.setBackgroundColor(colors.black)
 monitor.clear()
 drawGrid()
