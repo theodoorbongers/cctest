@@ -31,17 +31,17 @@ end
 function clearSquare(x, y, width, height)
   for currentY = y, y+height - 1
   do
-    window.setCursorPos(x, currentY)
-    window.write(string.rep(" ", width))
+    monitor.setCursorPos(x, currentY)
+    monitor.write(string.rep(" ", width))
   end
 end
 
 function drawGrid()
   for i,button in ipairs(buttons) do
-    window.setBackgroundColor(button.backgroundColor)
+    monitor.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, width, height)
-    window.setCursorPos(button.x + paddingLeft, button.y + paddingTop)
-    window.write(button.text)
+    monitor.setCursorPos(button.x + paddingLeft, button.y + paddingTop)
+    monitor.write(button.text)
   end
 end
 
