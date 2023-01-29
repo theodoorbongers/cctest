@@ -17,14 +17,14 @@ local buttons = {}
 for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
   local y = topMargin + instrumentIndex * LANE_HEIGHT + (instrumentIndex - 1) * LANE_SPACING
   buttons.insert({
-    x: LEFT_MARGIN,
-    y: y,
-    width: LANE_HEADING_WIDTH,
-    height: LANE_HEIGHT,
-    paddingTop: (LANE_HEIGHT - 1) / 2,
-    paddingLeft: 1,
-    backgroundColor: 1,
-    text: instrumentName,
+    x = LEFT_MARGIN,
+    y = y,
+    width = LANE_HEADING_WIDTH,
+    height = LANE_HEIGHT,
+    paddingTop = (LANE_HEIGHT - 1) / 2,
+    paddingLeft = 1,
+    backgroundColor = 1,
+    text = instrumentName,
   })
 end
 
