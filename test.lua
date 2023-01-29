@@ -5,15 +5,12 @@ function Set (list)
 end
 
 local stop = false
-local count = 0
-while not (stop or count > 10) do
+while not (stop) do
   local ignoredEvents = Set { "key", "key_up", "char" }
   local event = {os.pullEvent()}
-  count = count + 1
-  print("q", event[2])
 
   local eventName = table.unpack(event)
-  if eventName == "char"
+  if eventName == "char" and table[2] == "q"
   then
     print "JA"
     stop = true
