@@ -40,7 +40,7 @@ function drawGrid()
   for i,button in ipairs(buttons) do
     monitor.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, button.width, button.height)
-    monitor.setCursorPos(button.x + paddingLeft, button.y + paddingTop)
+    monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
     monitor.write(button.text)
   end
 end
