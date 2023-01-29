@@ -1,6 +1,6 @@
 local stop = false
 while not stop do
-  -- local event, chatbox, player, message = 
-  print(os.pullEvent())
+  local event = {os.pullEvent()}
+  print(event)
   stop = true
 end
