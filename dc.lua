@@ -33,8 +33,8 @@ end
 
 function initButtons2()
   table.insert(buttons, {
-    x = 0,
-    y = 0,
+    x = 3,
+    y = 1,
     width = 10,
     height = 2,
     paddingTop = 1,
