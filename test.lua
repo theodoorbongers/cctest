@@ -8,7 +8,7 @@ local stop = false
 while not stop do
   local ignoredEvents = Set { "key", "key_up", "char" }
   local event = {os.pullEvent()}
-  print event[1]
+  print(event[1])
 
   local eventName = table.unpack(event)
   if eventName == "key"
