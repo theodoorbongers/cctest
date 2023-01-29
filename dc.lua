@@ -31,6 +31,19 @@ function initButtons()
   end
 end
 
+function initButtons2()
+  table.insert(buttons, {
+    x = 0,
+    y = 0,
+    width = 10,
+    height = 2,
+    paddingTop = 1,
+    paddingLeft = 3,
+    backgroundColor = colors.gray,
+    text = "lala",
+  })
+end
+
 function clearSquare(x, y, width, height)
   for currentY = y, y + height - 1
   do
