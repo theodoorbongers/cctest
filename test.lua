@@ -5,7 +5,7 @@ function Set (list)
 end
 
 local stop = false
-while not stop do
+-- while not stop do
   local ignoredEvents = Set { "key", "key_up", "char" }
   local event = {os.pullEvent()}
   print("q", event[2])
@@ -13,10 +13,7 @@ while not stop do
   local eventName = table.unpack(event)
   if eventName == "char"
   then
-    print("JA")
-  end
-  if eventName == "key"
-  then
+    print "JA"
     stop = true
   end
 
@@ -24,4 +21,4 @@ while not stop do
   then
     print(table.unpack(event))
   end
-end
+-- end
