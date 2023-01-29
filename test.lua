@@ -10,7 +10,7 @@ while not (stop) do
   local event = {os.pullEvent()}
 
   local eventName = table.unpack(event)
-  if eventName == "char"
+  if eventName == "char" and event[2] == "q"
   then
     if (event[2] == "q")
     then
