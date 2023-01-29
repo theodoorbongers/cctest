@@ -6,7 +6,7 @@ end
 
 local stop = false
 while not stop do
-  local ignoredEvents = Set {"key_up"}
+  local ignoredEvents = Set {"key_up", "key"}
   local event = {os.pullEvent()}
   print(table.unpack(event))
 
