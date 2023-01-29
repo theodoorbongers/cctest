@@ -6,12 +6,11 @@ end
 
 local stop = false
 while not stop do
-  local ignoredEvents = Set {"key_up", "key"}
   local event = {os.pullEvent()}
   print(table.unpack(event))
 
-  local eventName = table.unpack(event)
-  if not ignoredEvents[eventName]
+  local eventName == table.unpack(event)
+  if eventName == "key"
   then
     stop = true
   end
