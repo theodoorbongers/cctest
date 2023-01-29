@@ -14,18 +14,21 @@ local monitorWidth, monitorHeight = monitor.getSize()
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
 local buttons = {}
-for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
-  local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING)
-  table.insert(buttons, {
-    x = LEFT_MARGIN,
-    y = y,
-    width = LANE_HEADING_WIDTH,
-    height = LANE_HEIGHT,
-    paddingTop = (LANE_HEIGHT - 1) / 2,
-    paddingLeft = 1,
-    backgroundColor = colors.gray,
-    text = instrumentName,
-  })
+
+function initButtons()
+  for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
+    local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING)
+    table.insert(buttons, {
+      x = LEFT_MARGIN,
+      y = y,
+      width = LANE_HEADING_WIDTH,
+      height = LANE_HEIGHT,
+      paddingTop = (LANE_HEIGHT - 1) / 2,
+      paddingLeft = 1,
+      backgroundColor = colors.gray,
+      text = instrumentName,
+    })
+  end
 end
 
 function clearSquare(x, y, width, height)
@@ -47,5 +50,6 @@ end
 
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
+initButtons()
 drawGrid()
-print(TOTAL_LANE_HEIGHT, monitorHeight, buttons[#buttons].y, buttons[#buttons].height)
+print(TOTAL_LANE_HEIGHT, monitorHeight, buttons[#buttons].y)
