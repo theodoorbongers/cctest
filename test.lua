@@ -12,7 +12,10 @@ while not (stop) do
   local eventName = table.unpack(event)
   if eventName == "char"
   then
-    print("JA", event[2])
+    if (event[2] == "q")
+    then
+      print("JA", event[2])
+    end
     stop = true
   end
 
