@@ -37,7 +37,7 @@ function clearSquare(x, y, width, height)
 end
 
 function drawGrid()
-  for button in ipairs(buttons) do
+  for i,button in ipairs(buttons) do
     window.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, width, height)
     window.setCursorPos(button.x + paddingLeft, button.y + paddingTop)
