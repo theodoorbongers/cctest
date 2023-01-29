@@ -45,5 +45,6 @@ function drawGrid()
   end
 end
 
+monitor.setBackgroundColor(0)
 monitor.clear()
 drawGrid()
