@@ -9,7 +9,7 @@ while not stop do
   local event = {os.pullEvent()}
   print(table.unpack(event))
 
-  local eventName == table.unpack(event)
+  local eventName = table.unpack(event)
   if eventName == "key"
   then
     stop = true
