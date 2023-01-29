@@ -15,7 +15,7 @@ local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
 local buttons = {}
 for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
-  local y = topMargin + instrumentIndex * LANE_HEIGHT + (instrumentIndex - 1) * LANE_SPACING
+  local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING) - LANE_SPACING
   table.insert(buttons, {
     x = LEFT_MARGIN,
     y = y,
