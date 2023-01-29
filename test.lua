@@ -11,6 +11,10 @@ while not stop do
   print("q", event[2])
 
   local eventName = table.unpack(event)
+  if eventName == "char"
+  then
+    print("JA")
+  end
   if eventName == "key"
   then
     stop = true
