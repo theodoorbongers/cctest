@@ -15,4 +15,5 @@ function drawGrid()
   end
 end
 
+monitor.clear()
 drawGrid()
