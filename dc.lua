@@ -13,17 +13,35 @@ local monitorWidth, monitorHeight = monitor.getSize()
 
 local topMargin = (monitorHeight - TOTAL_LANE_HEIGHT) / 2
 
+local buttons = {}
+for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
+  local y = topMargin + instrumentIndex * LANE_HEIGHT + (instrumentIndex - 1) * LANE_SPACING
+  buttons.insert({
+    x: LEFT_MARGIN,
+    y: y,
+    width: LANE_HEADING_WIDTH,
+    height: LANE_HEIGHT,
+    paddingTop: (LANE_HEIGHT - 1) / 2,
+    paddingLeft: 1,
+    backgroundColor: 1,
+    text: instrumentName,
+  })
+end
+
+function clearSquare(x, y, width, height)
+  for currentY = y, y+height - 1
+    window.setCursorPos(x, currentY)
+    window.write(string.rep(" ", width))
+  do
+  end
+end
+
 function drawGrid()
-  for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
-    local y = topMargin + instrumentIndex * LANE_HEIGHT + (instrumentIndex - 1) * LANE_SPACING
-    monitor.setCursorPos(LEFT_MARGIN, y)
-    monitor.write(instrumentName)
-    
-    for beatIndex = 1,10
-    do
-      monitor.setCursorPos(LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) - BEAT_SPACING, y)
-      monitor.write("X")
-    end
+  for button in ipairs(buttons) do
+    window.setBackgroundColor(button.backgroundColor)
+    clearSquare(button.x, button.y, width, height)
+    window.setCursorPos(button.x + paddingLeft, button.y + paddingTop)
+    window.write(button.text)
   end
 end
 
