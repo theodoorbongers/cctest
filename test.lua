@@ -1,10 +1,9 @@
-local speaker = peripheral.find("speaker")
-
-local buffer = {}
-local t, dt = 0, 2 * math.pi * 220 / 48000
-for i = 1, 128 * 1024 do
-    buffer[i] = math.floor(math.sin(t) * 127)
-    t = (t + dt) % (math.pi * 2)
+while true do
+  local event, arg1, arg2, arg3, arg4, arg5 = os.pullEvent("chat_message")
+  print(event)
+  print(arg1)
+  print(arg2)
+  print(arg3)
+  print(arg4)
+  print(arg5)
 end
-
-speaker.playAudio(buffer)
