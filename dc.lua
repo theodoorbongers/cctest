@@ -48,3 +48,4 @@ end
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
 drawGrid()
+print(buttons[#buttons].y, buttons[#buttons].height)
