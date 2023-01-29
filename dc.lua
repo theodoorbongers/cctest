@@ -1,6 +1,6 @@
 local instruments = { "basedrum", "hat", "snare", "cow_bell" }
 
-monitor = periphals.find("monitor")
+monitor = peripherals.find("monitor")
 
 function drawGrid()
   for index, name in ipairs(instruments) do
