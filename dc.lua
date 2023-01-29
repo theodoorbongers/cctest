@@ -11,7 +11,7 @@ local topMargin = (monitorHeight - TOTAL_LANE_HEIGHT) / 2
 
 function drawGrid()
   for index, name in ipairs(INSTRUMENTS) do
-    monitor.setCursorPos(MARGIN_LEFT + 1, topMargin + index * LANE_HEIGHT + (index - 1) * LANE_SPACING)
+    monitor.setCursorPos(MARGIN_LEFT, topMargin + index * LANE_HEIGHT + (index - 1) * LANE_SPACING)
     monitor.write(name)
   end
 end
