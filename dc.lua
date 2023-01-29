@@ -29,7 +29,7 @@ for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
 end
 
 function clearSquare(x, y, width, height)
-  for currentY = y, y+height - 1
+  for currentY = y, y + height - 1
   do
     monitor.setCursorPos(x, currentY)
     monitor.write(string.rep(" ", width))
@@ -39,7 +39,7 @@ end
 function drawGrid()
   for i,button in ipairs(buttons) do
     monitor.setBackgroundColor(button.backgroundColor)
-    clearSquare(button.x, button.y, width, height)
+    clearSquare(button.x, button.y, button.width, button.height)
     monitor.setCursorPos(button.x + paddingLeft, button.y + paddingTop)
     monitor.write(button.text)
   end
