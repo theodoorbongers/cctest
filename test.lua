@@ -7,15 +7,12 @@ end
 local stop = false
 while not (stop) do
   local ignoredEvents = Set { "key", "key_up", "char" }
+  ignoredEvents = {}
   local event = {os.pullEvent()}
 
   local eventName = table.unpack(event)
   if eventName == "char" and event[2] == "q"
   then
-    if (event[2] == "q")
-    then
-      print("JA", event[2])
-    end
     stop = true
   end
 
