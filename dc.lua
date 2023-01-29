@@ -15,12 +15,13 @@ local topMargin = (monitorHeight - TOTAL_LANE_HEIGHT) / 2
 
 function drawGrid()
   for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
-    monitor.setCursorPos(LEFT_MARGIN, topMargin + instrumentIndex * LANE_HEIGHT + (instrumentIndex - 1) * LANE_SPACING)
+    local y = topMargin + instrumentIndex * LANE_HEIGHT + (instrumentIndex - 1) * LANE_SPACING
+    monitor.setCursorPos(LEFT_MARGIN, y)
     monitor.write(instrumentName)
     
     for beatIndex = 1,10
     do
-      monitor.setCursorPos(LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) - BEAT_SPACING)
+      monitor.setCursorPos(LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) - BEAT_SPACING, y)
       monitor.write("X")
     end
   end
