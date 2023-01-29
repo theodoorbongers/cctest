@@ -11,7 +11,7 @@ local TOTAL_BEATS = 16
 local monitor = peripheral.find("monitor")
 local monitorWidth, monitorHeight = monitor.getSize()
 
-local topMargin = (monitorHeight - TOTAL_LANE_HEIGHT) / 2
+local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
 local buttons = {}
 for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
