@@ -30,9 +30,9 @@ end
 
 function clearSquare(x, y, width, height)
   for currentY = y, y+height - 1
+  do
     window.setCursorPos(x, currentY)
     window.write(string.rep(" ", width))
-  do
   end
 end
 
