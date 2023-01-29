@@ -48,4 +48,4 @@ end
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
 drawGrid()
-print(monitorHeight, buttons[#buttons].y, buttons[#buttons].height)
+print(TOTAL_LANE_HEIGHT, monitorHeight, buttons[#buttons].y, buttons[#buttons].height)
