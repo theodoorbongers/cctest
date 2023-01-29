@@ -5,7 +5,7 @@ local TOTAL_LANE_HEIGHT = #INSTRUMENTS * (LANE_HEIGHT + LANE_SPACING) - LANE_SPA
 local LEFT_MARGIN = 2
 local BEAT_SPACING = 1
 local BEAT_WIDTH = 4
-local LANE_HEADING_WIDTH = 20
+local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 16
 
 local monitor = peripheral.find("monitor")
