@@ -138,11 +138,10 @@ function paintScreen()
 end
 
 function processBeat()
-  paintScreen()
+  print("processBeat")
   local previousBeatIndex = currentBeatIndex
   currentBeatIndex = currentBeatIndex % TOTAL_BEATS + 1
   for instrument, buttons in ipairs(triggerButtons) do
-    print(1)
     updateButtonColor(instrument, previousBeatIndex)
     updateButtonColor(instrument, currentBeatIndex)
   end
@@ -152,6 +151,7 @@ function processBeat()
       speaker.playNote(instrument)
     end
   end
+  paintScreen()
 end
 
 initButtons()
