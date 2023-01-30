@@ -52,7 +52,7 @@ function initButtons()
       backgroundColor = colors.gray,
       text = instrument.displayName,
     })
-    for beatIndex = 1,16 do
+    for beatIndex = 1,TOTAL_BEATS do
       table.insert(buttons, {
         x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING),
         y = y,
