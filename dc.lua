@@ -37,10 +37,10 @@ local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
 local TICKS_PER_BEAT = 4
 local triggersPerInstrument = {
-  basedrum = { true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false },
-  hat = { false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true },
-  snare = { false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false },
-  bell = { true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true }
+  basedrum = {},
+  hat = {},
+  snare = {},
+  bell = {}
 }
 local triggerButtons
 local currentBeatIndex = 0
