@@ -39,6 +39,9 @@ local COLOR_UNSELECTED_BEAT = 3
 monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
 monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 1, 0, 0)
 monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
+print(monitor.getPaletteColor(COLOR_HEADER_FOREGROUND))
+print(monitor.getPaletteColor(COLOR_HEADER_BACKGROUND))
+print(monitor.getPaletteColor(COLOR_UNSELECTED_BEAT))
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
