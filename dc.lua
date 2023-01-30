@@ -123,9 +123,8 @@ end
 initButtons()
 repaintScreen()
 local timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
-local counter = 0
 local quit
-while counter < 100 and not quit do
+while not quit do
   local eventData = {os.pullEvent()}
   local event = eventData[1]
   -- print(table.unpack(eventData))
@@ -135,5 +134,4 @@ while counter < 100 and not quit do
   elseif event == "char" and eventData[2] == "q" then
     quit = true
   end
-  counter = counter + 1
 end
