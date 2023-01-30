@@ -44,7 +44,7 @@ end
 local COLOR_HEADER_FOREGROUND, COLOR_HEADER_BACKGROUND, COLOR_UNSELECTED_BEAT = getPaletteEntries()
 
 monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
-monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 1, 0, 0)
+monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 0.1, 0.1, 0.1)
 monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
 print(monitor.getPaletteColor(COLOR_HEADER_FOREGROUND))
 print(monitor.getPaletteColor(COLOR_HEADER_BACKGROUND))
@@ -71,7 +71,7 @@ function initButtons()
     })
     for beatIndex = 1,TOTAL_BEATS do
       table.insert(buttons, {
-        x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING),
+        x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) + 1,
         y = y,
         width = BEAT_WIDTH,
         height = LANE_HEIGHT,
