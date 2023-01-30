@@ -33,8 +33,8 @@ local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
 
-local COLOR_HEADER_BACKGROUND = color.packRGB(0.1, 0.1, 0.1)
-local COLOR_UNSELECTED_BEAT_BACKGROUND = color.packRGB(0, 0, 0.4)
+local COLOR_HEADER_BACKGROUND = colors.packRGB(0.1, 0.1, 0.1)
+local COLOR_UNSELECTED_BEAT_BACKGROUND = colors.packRGB(0, 0, 0.4)
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
