@@ -143,7 +143,7 @@ function processBeat()
   currentBeatIndex = (currentBeatIndex % TOTAL_BEATS) + 1
   print("processBeat", previousBeatIndex, currentBeatIndex)
   for instrument, buttons in pairs(triggerButtons) do
-    if previousBeatIndex then
+    if previousBeatIndex > 0 then
       updateButtonColor(instrument, previousBeatIndex)
     end
     updateButtonColor(instrument, currentBeatIndex)
