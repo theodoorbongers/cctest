@@ -57,6 +57,7 @@ function drawGrid()
     monitor.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, button.width, button.height)
     monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
+    print(button.x + button.paddingLeft, button.y + button.paddingTop)
     monitor.write(button.text)
   end
 end
@@ -65,4 +66,4 @@ monitor.setBackgroundColor(colors.black)
 monitor.clear()
 initButtons()
 drawGrid()
-print(TOTAL_LANE_HEIGHT, monitorHeight, buttons[#buttons].y)
+-- print(TOTAL_LANE_HEIGHT, monitorHeight, buttons[#buttons].y)
