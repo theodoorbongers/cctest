@@ -33,10 +33,11 @@ local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
 
-local COLOR_HEADER_BACKGROUND = 1
-local COLOR_UNSELECTED_BEAT_BACKGROUND = 2
+local COLOR_HEADER_FOREGROUND = 1
+local COLOR_HEADER_BACKGROUND = 2
+local COLOR_UNSELECTED_BEAT = 3
 monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 0.1, 0.1, 0.1)
-monitor.setPaletteColor(COLOR_UNSELECTED_BEAT_BACKGROUND, 0, 0, 0.4)
+monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
@@ -53,6 +54,7 @@ function initButtons()
       height = LANE_HEIGHT,
       paddingTop = paddingTop,
       paddingLeft = 1,
+      foregroundColor = COLOR_HEADER_FOREGROUND,
       backgroundColor = COLOR_HEADER_BACKGROUND,
       text = instrument.displayName,
     })
@@ -64,7 +66,7 @@ function initButtons()
         height = LANE_HEIGHT,
         paddingTop = paddingTop,
         paddingLeft = 1,
-        backgroundColor = COLOR_UNSELECTED_BEAT_BACKGROUND,
+        backgroundColor = COLOR_UNSELECTED_BEAT,
         text = " "
       })
     end
@@ -79,9 +81,10 @@ function clearSquare(x, y, width, height)
   end
 end
 
-function drawGrid()
+function repaintScreen()
   for i,button in ipairs(buttons) do
     print(button.backgroundColor)
+    monitor.setForegroundColor(button.foregroundColor)
     monitor.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, button.width, button.height)
     monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
@@ -90,4 +93,4 @@ function drawGrid()
 end
 
 initButtons()
-drawGrid()
+repaintScreen()
