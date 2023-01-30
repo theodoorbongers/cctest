@@ -113,7 +113,7 @@ function updateButtonColor(instrument, beatIndex)
   local button = triggerButtons[instrument][beatIndex]
   if beatIndex == currentBeatIndex then
     button.backgroundColor = COLOR_CURRENT_BEAT
-  else if triggersPerInstrument[instrument][beatIndex] then
+  elseif triggersPerInstrument[instrument][beatIndex] then
     button.backgroundColor = COLOR_SELECTED_BEAT
   else
     button.backgroundColor = COLOR_UNSELECTED_BEAT
