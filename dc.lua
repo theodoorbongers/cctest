@@ -33,6 +33,8 @@ local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
 
+local COLOR_HEADER_BACKGROUND = color.packRGB(0.1, 0.1, 0.1)
+local COLOR_UNSELECTED_BEAT_BACKGROUND = color.packRGB(0, 0, 0.4)
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
@@ -49,7 +51,7 @@ function initButtons()
       height = LANE_HEIGHT,
       paddingTop = paddingTop,
       paddingLeft = 1,
-      backgroundColor = colors.gray,
+      backgroundColor = COLOR_HEADER_BACKGROUND,
       text = instrument.displayName,
     })
     for beatIndex = 1,TOTAL_BEATS do
@@ -60,7 +62,7 @@ function initButtons()
         height = LANE_HEIGHT,
         paddingTop = paddingTop,
         paddingLeft = 1,
-        backgroundColor = colors.gray,
+        backgroundColor = COLOR_UNSELECTED_BEAT_BACKGROUND,
         text = " "
       })
     end
