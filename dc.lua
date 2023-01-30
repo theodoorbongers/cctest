@@ -73,7 +73,7 @@ function initButtons()
     })
     for beatIndex = 1,TOTAL_BEATS do
       table.insert(buttons, {
-        x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) + math.floor(beatIndex / BEAT_GROUP_SIZE) * BEAT_GROUP_SPACING + 1,
+        x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) + math.floor((beatIndex - 1) / BEAT_GROUP_SIZE) * BEAT_GROUP_SPACING + 1,
         y = y,
         width = BEAT_WIDTH,
         height = LANE_HEIGHT,
