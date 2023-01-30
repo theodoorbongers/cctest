@@ -24,7 +24,7 @@ local INSTRUMENTS =
     displayName = "Cowbell"
   },
 }
-local LANE_HEIGHT = 3
+local LANE_HEIGHT = 5
 local LANE_SPACING = 1
 local TOTAL_LANE_HEIGHT = #INSTRUMENTS * (LANE_HEIGHT + LANE_SPACING) - LANE_SPACING
 local LEFT_MARGIN = 2
