@@ -112,15 +112,11 @@ end
 
 function updateButtonColor(instrument, beatIndex)
   local button = triggerButtons[instrument][beatIndex]
-  print("updateButtonColor", instrument, beatIndex)
   if beatIndex == currentBeatIndex then
-    print("setting button to COLOR_CURRENT_BEAT", instrument, beatIndex)
     button.backgroundColor = COLOR_CURRENT_BEAT
   elseif triggersPerInstrument[instrument][beatIndex] then
-    print("setting button to COLOR_SELECTED_BEAT", instrument, beatIndex)
     button.backgroundColor = COLOR_SELECTED_BEAT
   else
-    print("setting button to COLOR_UNSELECTED_BEAT", instrument, beatIndex)
     button.backgroundColor = COLOR_UNSELECTED_BEAT
   end
 end
@@ -142,7 +138,6 @@ end
 function processBeat()
   local previousBeatIndex = currentBeatIndex
   currentBeatIndex = (currentBeatIndex % TOTAL_BEATS) + 1
-  print("processBeat", previousBeatIndex, currentBeatIndex)
   for instrument, buttons in pairs(triggerButtons) do
     if previousBeatIndex > 0 then
       updateButtonColor(instrument, previousBeatIndex)
@@ -165,7 +160,6 @@ local quit
 while not quit do
   local eventData = {os.pullEvent()}
   local event = eventData[1]
-  -- print(table.unpack(eventData))
   if event == "timer" and eventData[2] == timerId then
     processBeat()
     timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
