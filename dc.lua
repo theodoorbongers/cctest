@@ -34,6 +34,7 @@ local BEAT_GROUP_SPACING = 1
 local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
+local TICKS_PER_BEAT = 4
 
 function getPaletteEntries()
   local entries = {}
@@ -107,3 +108,9 @@ end
 
 initButtons()
 repaintScreen()
+local timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
+local counter = 0
+while counter < 10 do
+  local eventData = {os.pullEvent()}
+  print(table.unpack(eventData))
+end
