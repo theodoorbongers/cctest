@@ -21,8 +21,8 @@ local INSTRUMENTS =
     displayName = "Snare drum"
   },
   {
-    name = "cow_bell",
-    displayName = "Cowbell"
+    name = "bell",
+    displayName = "Bell"
   },
 }
 local LANE_HEIGHT = 5
@@ -40,7 +40,7 @@ local triggersPerInstrument = {
   basedrum = { true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false },
   hat = { false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true },
   snare = { false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false },
-  cow_bell = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false }
+  bell = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false }
 }
 local triggerButtons
 local currentBeatIndex = 0
