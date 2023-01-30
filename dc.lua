@@ -1,4 +1,5 @@
 local monitor = peripheral.find("monitor")
+local speaker = peripheral.find("speaker")
 monitor.setTextScale(0.5)
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
@@ -35,6 +36,12 @@ local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
 local TICKS_PER_BEAT = 4
+local triggersPerInstrument = {
+  basedrum = { true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false },
+  hat = { true, false, false, true, true, false, false, false, true, false, false, true, true, false, false, false },
+  snare = { false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false }
+}
+local currentBeatIndex = 0
 
 function getPaletteEntries()
   local entries = {}
@@ -105,6 +112,12 @@ end
 
 function processBeat()
   repaintScreen()
+  currentBeatIndex = currentBeatIndex % TOTAL_BEATS + 1
+  for instrument, triggers in pairs(triggersPerInstrument) do
+    if triggers[currentBeatIndex] then
+      speaker.playNote(instrument)
+    end
+  end
 end
 
 initButtons()
