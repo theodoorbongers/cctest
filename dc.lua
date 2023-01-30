@@ -1,4 +1,22 @@
-local INSTRUMENTS = { "basedrum", "hat", "snare", "cow_bell" }
+local INSTRUMENTS =
+{
+  {
+    name = "basedrum",
+    displayName = "Bass drum"
+  },
+  {
+    name = "hat",
+    displayName = "Hihat"
+  },
+  {
+    name = "snare",
+    displayName = "Snare drum"
+  },
+  {
+    name = "cow_bell",
+    displayName = "Cowbell"
+  },
+}
 local LANE_HEIGHT = 3
 local LANE_SPACING = 1
 local TOTAL_LANE_HEIGHT = #INSTRUMENTS * (LANE_HEIGHT + LANE_SPACING) - LANE_SPACING
@@ -16,7 +34,7 @@ local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 local buttons = {}
 
 function initButtons()
-  for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
+  for instrumentIndex, instrument in ipairs(INSTRUMENTS) do
     local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING) + 1
     table.insert(buttons, {
       x = LEFT_MARGIN,
@@ -26,7 +44,7 @@ function initButtons()
       paddingTop = (LANE_HEIGHT - 1) / 2,
       paddingLeft = 1,
       backgroundColor = colors.gray,
-      text = instrumentName,
+      text = instrument.displayName,
     })
   end
 end
