@@ -10,7 +10,7 @@ local INSTRUMENTS =
 {
   {
     name = "basedrum",
-    displayName = "Bass drum"
+    displayName = "Bass"
   },
   {
     name = "hat",
@@ -18,7 +18,7 @@ local INSTRUMENTS =
   },
   {
     name = "snare",
-    displayName = "Snare drum"
+    displayName = "Snare"
   },
   {
     name = "bell",
@@ -33,7 +33,7 @@ local BEAT_SPACING = 1
 local BEAT_GROUP_SIZE = 4
 local BEAT_GROUP_SPACING = 1
 local BEAT_WIDTH = 3
-local LANE_HEADING_WIDTH = 12
+local LANE_HEADING_WIDTH = 10
 local TOTAL_BEATS = 32
 local TICKS_PER_BEAT = 4
 local triggersPerInstrument = {
