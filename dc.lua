@@ -36,7 +36,7 @@ local TOTAL_BEATS = 32
 local COLOR_HEADER_FOREGROUND = 1
 local COLOR_HEADER_BACKGROUND = 2
 local COLOR_UNSELECTED_BEAT = 3
-monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, colors.white)
+monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
 monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 0.1, 0.1, 0.1)
 monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
 
