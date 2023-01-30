@@ -113,4 +113,5 @@ local counter = 0
 while counter < 10 do
   local eventData = {os.pullEvent()}
   print(table.unpack(eventData))
+  counter = counter + 1
 end
