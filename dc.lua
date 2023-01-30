@@ -61,7 +61,7 @@ local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
 local buttons = {}
 
-function initButtons()
+function updateButtons()
   for instrumentIndex, instrument in ipairs(INSTRUMENTS) do
     local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING) + 1
     local paddingTop = (LANE_HEIGHT - 1) / 2
@@ -113,6 +113,7 @@ end
 function processBeat()
   repaintScreen()
   currentBeatIndex = currentBeatIndex % TOTAL_BEATS + 1
+  updateButtons()
   for instrument, triggers in pairs(triggersPerInstrument) do
     if triggers[currentBeatIndex] then
       speaker.playNote(instrument)
@@ -120,7 +121,7 @@ function processBeat()
   end
 end
 
-initButtons()
+updateButtons()
 repaintScreen()
 local timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
 local quit
