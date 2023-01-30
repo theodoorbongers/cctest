@@ -138,10 +138,10 @@ function paintScreen()
 end
 
 function processBeat()
-  print("processBeat")
   local previousBeatIndex = currentBeatIndex
   currentBeatIndex = currentBeatIndex % TOTAL_BEATS + 1
   for instrument, buttons in ipairs(triggerButtons) do
+    print("processBeat A")
     updateButtonColor(instrument, previousBeatIndex)
     updateButtonColor(instrument, currentBeatIndex)
   end
