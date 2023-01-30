@@ -56,7 +56,7 @@ function initButtons()
         paddingTop = paddingTop,
         paddingLeft = 1,
         backgroundColor = colors.gray,
-        text = " ",
+        text = " "
       }),
     end
   end
