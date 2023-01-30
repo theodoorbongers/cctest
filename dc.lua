@@ -45,7 +45,7 @@ local COLOR_HEADER_FOREGROUND, COLOR_HEADER_BACKGROUND, COLOR_UNSELECTED_BEAT = 
 
 monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
 monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 0.1, 0.1, 0.1)
-monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
+monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.2)
 print(monitor.getPaletteColor(COLOR_HEADER_FOREGROUND))
 print(monitor.getPaletteColor(COLOR_HEADER_BACKGROUND))
 print(monitor.getPaletteColor(COLOR_UNSELECTED_BEAT))
