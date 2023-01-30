@@ -1,3 +1,7 @@
+monitor.setTextScale(0.5)
+monitor.setBackgroundColor(colors.black)
+monitor.clear()
+
 local INSTRUMENTS =
 {
   {
@@ -79,8 +83,5 @@ function drawGrid()
   end
 end
 
-monitor.setTextScale(0.5)
-monitor.setBackgroundColor(colors.black)
-monitor.clear()
 initButtons()
 drawGrid()
