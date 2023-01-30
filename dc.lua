@@ -33,9 +33,16 @@ local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 32
 
-local COLOR_HEADER_FOREGROUND = 1
-local COLOR_HEADER_BACKGROUND = 2
-local COLOR_UNSELECTED_BEAT = 3
+function getPaletteEntries()
+  local entries = {}
+  for index = 0,15 do
+    table.insert(entries, 2 ^ index)
+  end
+  return unpack(entries)
+end
+
+local COLOR_HEADER_FOREGROUND, COLOR_HEADER_BACKGROUND, COLOR_UNSELECTED_BEAT = getPaletteEntries()
+
 monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
 monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 1, 0, 0)
 monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
