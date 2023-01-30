@@ -106,16 +106,21 @@ function repaintScreen()
   end
 end
 
+function processBeat()
+  repaintScreen()
+end
+
 initButtons()
 repaintScreen()
 local timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
 local counter = 0
-local quit = false
+local quit
 while counter < 100 and not quit do
   local eventData = {os.pullEvent()}
   local event = eventData[1]
   print(table.unpack(eventData))
   if event == "timer" and eventData[2] == timerId then
+    processBeat()
     timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
   elseif event == "char" and eventData[2] == "q" then
     quit = true
