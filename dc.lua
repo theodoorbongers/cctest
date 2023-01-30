@@ -111,6 +111,7 @@ end
 
 function updateButtonColor(instrument, beatIndex)
   local button = triggerButtons[instrument][beatIndex]
+  print("updateButtonColor", instrument, beatIndex)
   if beatIndex == currentBeatIndex then
     print("setting button to COLOR_CURRENT_BEAT", instrument, beatIndex)
     button.backgroundColor = COLOR_CURRENT_BEAT
