@@ -31,7 +31,7 @@ local LEFT_MARGIN = 2
 local BEAT_SPACING = 1
 local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
-local TOTAL_BEATS = 16
+local TOTAL_BEATS = 32
 
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
