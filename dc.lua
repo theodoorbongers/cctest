@@ -81,7 +81,7 @@ function initButtons()
       text = instrument.displayName,
     })
 
-    triggerButtons[instrument] = {}
+    triggerButtons[instrument.name] = {}
     
     for beatIndex = 1,TOTAL_BEATS do
       local button = {
@@ -96,7 +96,7 @@ function initButtons()
         text = ""
       }
       table.insert(buttons, button)
-      triggerButtons[instrument][beatIndex] = button;
+      triggerButtons[instrument.name][beatIndex] = button;
     end
   end
 end
