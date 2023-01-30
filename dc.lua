@@ -17,7 +17,7 @@ local buttons = {}
 
 function initButtons()
   for instrumentIndex, instrumentName in ipairs(INSTRUMENTS) do
-    local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING)
+    local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING) + 1
     table.insert(buttons, {
       x = LEFT_MARGIN,
       y = y,
