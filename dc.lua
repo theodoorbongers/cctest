@@ -164,6 +164,19 @@ while not quit do
   if event == "timer" and eventData[2] == timerId then
     processBeat()
     timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
+  elseif event == "monitor_touch" then
+    local touchX, touchY = eventData[3], eventData[4]
+    for instrumentName, buttons in pairs(triggerButtons) do
+      if touchY >= buttons[1].y and touchY < buttons[1].y + buttons[1].height then
+        for beatIndex, button in ipairs(buttons) do
+          if touchX >= button.x and touchX < button.x + button.width then
+            triggersPerInstrument[instrumentName][beatIndex] = not triggersPerInstrument[instrumentName][beatIndex]
+            updateButtonColor(instrumentName, beatIndex)
+            break
+          end
+        end
+      end
+    end
   elseif event == "char" and eventData[2] == "q" then
     quit = true
   end
