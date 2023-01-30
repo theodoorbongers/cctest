@@ -40,7 +40,7 @@ local triggersPerInstrument = {
   basedrum = { true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false },
   hat = { false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true },
   snare = { false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false },
-  cow_bell = { false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false }
+  cow_bell = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false }
 }
 local triggerButtons
 local currentBeatIndex = 0
