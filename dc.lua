@@ -36,16 +36,29 @@ local buttons = {}
 function initButtons()
   for instrumentIndex, instrument in ipairs(INSTRUMENTS) do
     local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING) + 1
+    local paddingTop = (LANE_HEIGHT - 1) / 2
     table.insert(buttons, {
       x = LEFT_MARGIN,
       y = y,
       width = LANE_HEADING_WIDTH,
       height = LANE_HEIGHT,
-      paddingTop = (LANE_HEIGHT - 1) / 2,
+      paddingTop = paddingTop,
       paddingLeft = 1,
       backgroundColor = colors.gray,
       text = instrument.displayName,
     })
+    for beatIndex = 1,16 do
+      table.insert(buttons, {
+        x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING),
+        y = y,
+        width = BEAT_WIDTH,
+        height = LANE_HEIGHT,
+        paddingTop = paddingTop,
+        paddingLeft = 1,
+        backgroundColor = colors.gray,
+        text = " ",
+      }),
+    end
   end
 end
 
