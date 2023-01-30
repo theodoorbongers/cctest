@@ -114,7 +114,8 @@ while counter < 10 do
   local eventData = {os.pullEvent()}
   local event = eventData[1]
   print(table.unpack(eventData))
-  if event == "timer" and eventData[2] == timerId do
+  if event == "timer" and eventData[2] == timerId then
+  do
     timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
   end
   counter = counter + 1
