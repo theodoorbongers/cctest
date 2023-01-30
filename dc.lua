@@ -159,6 +159,7 @@ local timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
 local quit
 while not quit do
   local eventData = {os.pullEvent()}
+  print(table.unpack(eventData))
   local event = eventData[1]
   if event == "timer" and eventData[2] == timerId then
     processBeat()
