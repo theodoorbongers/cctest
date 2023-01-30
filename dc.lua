@@ -1,6 +1,9 @@
+local monitor = peripheral.find("monitor")
 monitor.setTextScale(0.5)
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
+
+local monitorWidth, monitorHeight = monitor.getSize()
 
 local INSTRUMENTS =
 {
@@ -30,8 +33,6 @@ local BEAT_WIDTH = 3
 local LANE_HEADING_WIDTH = 12
 local TOTAL_BEATS = 16
 
-local monitor = peripheral.find("monitor")
-local monitorWidth, monitorHeight = monitor.getSize()
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
