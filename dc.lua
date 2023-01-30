@@ -54,7 +54,7 @@ function initButtons()
       height = LANE_HEIGHT,
       paddingTop = paddingTop,
       paddingLeft = 1,
-      color = COLOR_HEADER_FOREGROUND,
+      textColor = COLOR_HEADER_FOREGROUND,
       backgroundColor = COLOR_HEADER_BACKGROUND,
       text = instrument.displayName,
     })
@@ -84,7 +84,7 @@ end
 function repaintScreen()
   for i,button in ipairs(buttons) do
     print(button.backgroundColor)
-    monitor.setColor(button.color)
+    monitor.setTextColor(button.textColor)
     monitor.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, button.width, button.height)
     monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
