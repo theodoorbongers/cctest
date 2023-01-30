@@ -142,7 +142,7 @@ function processBeat()
   local previousBeatIndex = currentBeatIndex
   currentBeatIndex = currentBeatIndex % TOTAL_BEATS + 1
   for instrument, buttons in pairs(triggerButtons) do
-    print("processBeat A")
+    print("processBeat A", instrument)
     updateButtonColor(instrument, previousBeatIndex)
     updateButtonColor(instrument, currentBeatIndex)
   end
