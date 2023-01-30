@@ -37,7 +37,7 @@ local COLOR_HEADER_FOREGROUND = 1
 local COLOR_HEADER_BACKGROUND = 2
 local COLOR_UNSELECTED_BEAT = 3
 monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
-monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 0.1, 0.1, 0.1)
+monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 1, 0, 0)
 monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.4)
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
@@ -85,7 +85,6 @@ end
 
 function repaintScreen()
   for i,button in ipairs(buttons) do
-    print(button.backgroundColor)
     monitor.setTextColor(button.textColor)
     monitor.setBackgroundColor(button.backgroundColor)
     clearSquare(button.x, button.y, button.width, button.height)
