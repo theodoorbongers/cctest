@@ -69,7 +69,7 @@ function initButtons()
         paddingLeft = 1,
         textColor = COLOR_UNSELECTED_BEAT,
         backgroundColor = COLOR_UNSELECTED_BEAT,
-        text = " "
+        text = "X"
       })
     end
   end
