@@ -92,12 +92,10 @@ function initButtons()
         height = LANE_HEIGHT,
         paddingTop = paddingTop,
         paddingLeft = 1,
-        textColor = COLOR_UNSELECTED_BEAT,
-        backgroundColor = COLOR_UNSELECTED_BEAT,
-        text = ""
       }
       table.insert(buttons, button)
       triggerButtons[instrument.name][beatIndex] = button;
+      updateButtonColor(instrument.name, beatIndex)
     end
   end
 end
@@ -122,7 +120,9 @@ function updateButtonColor(instrument, beatIndex)
 end
 
 function paintButton(button)
-  monitor.setTextColor(button.textColor)
+  if button.text and button.textColor then
+    monitor.setTextColor(button.textColor)
+  end
   monitor.setBackgroundColor(button.backgroundColor)
   clearSquare(button.x, button.y, button.width, button.height)
   monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
