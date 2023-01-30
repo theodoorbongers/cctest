@@ -41,6 +41,7 @@ local triggersPerInstrument = {
   hat = { false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true },
   snare = { false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false }
 }
+local triggerButtons
 local currentBeatIndex = 0
 
 function getPaletteEntries()
@@ -51,17 +52,20 @@ function getPaletteEntries()
   return unpack(entries)
 end
 
-local COLOR_HEADER_FOREGROUND, COLOR_HEADER_BACKGROUND, COLOR_UNSELECTED_BEAT = getPaletteEntries()
+local COLOR_HEADER_FOREGROUND, COLOR_HEADER_BACKGROUND, COLOR_UNSELECTED_BEAT, COLOR_SELECTED_BEAT, COLOR_CURRENT_BEAT = getPaletteEntries()
 
 monitor.setPaletteColor(COLOR_HEADER_FOREGROUND, 1, 1, 1)
 monitor.setPaletteColor(COLOR_HEADER_BACKGROUND, 0.1, 0.1, 0.1)
 monitor.setPaletteColor(COLOR_UNSELECTED_BEAT, 0.1, 0.1, 0.2)
+monitor.setPaletteColor(COLOR_SELECTED_BEAT, 0.5, 0.5, 1)
+monitor.setPaletteColor(COLOR_CURRENT_BEAT, 0.5, 1, 0.5)
 
 local topMargin = math.floor((monitorHeight - TOTAL_LANE_HEIGHT) / 2)
 
 local buttons = {}
 
-function updateButtons()
+function initButtons()
+  triggerButtons = {}
   for instrumentIndex, instrument in ipairs(INSTRUMENTS) do
     local y = topMargin + (instrumentIndex - 1) * (LANE_HEIGHT + LANE_SPACING) + 1
     local paddingTop = (LANE_HEIGHT - 1) / 2
@@ -76,8 +80,11 @@ function updateButtons()
       backgroundColor = COLOR_HEADER_BACKGROUND,
       text = instrument.displayName,
     })
+
+    triggerButtons[instrument] = {}
+    
     for beatIndex = 1,TOTAL_BEATS do
-      table.insert(buttons, {
+      local button = {
         x = LEFT_MARGIN + LANE_HEADING_WIDTH + (beatIndex - 1) * (BEAT_WIDTH + BEAT_SPACING) + math.floor((beatIndex - 1) / BEAT_GROUP_SIZE + 1) * BEAT_GROUP_SPACING + 1,
         y = y,
         width = BEAT_WIDTH,
@@ -87,7 +94,9 @@ function updateButtons()
         textColor = COLOR_UNSELECTED_BEAT,
         backgroundColor = COLOR_UNSELECTED_BEAT,
         text = ""
-      })
+      }
+      table.insert(buttons, button)
+      triggerButtons[instrument][beatIndex] = button;
     end
   end
 end
@@ -100,20 +109,40 @@ function clearSquare(x, y, width, height)
   end
 end
 
-function repaintScreen()
+function updateButtonColor(instrument, beatIndex)
+  local button = triggerButtons[instrument][beatIndex]
+  if beatIndex == currentBeatIndex then
+    button.backgroundColor = COLOR_CURRENT_BEAT
+  else if triggersPerInstrument[instrument][beatIndex] then
+    button.backgroundColor = COLOR_SELECTED_BEAT
+  else
+    button.backgroundColor = COLOR_UNSELECTED_BEAT
+  end
+end
+
+function paintButton(button)
+  monitor.setTextColor(button.textColor)
+  monitor.setBackgroundColor(button.backgroundColor)
+  clearSquare(button.x, button.y, button.width, button.height)
+  monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
+  monitor.write(button.text)
+end
+
+function paintScreen()
   for i,button in ipairs(buttons) do
-    monitor.setTextColor(button.textColor)
-    monitor.setBackgroundColor(button.backgroundColor)
-    clearSquare(button.x, button.y, button.width, button.height)
-    monitor.setCursorPos(button.x + button.paddingLeft, button.y + button.paddingTop)
-    monitor.write(button.text)
+    paintButton(button)
   end
 end
 
 function processBeat()
-  repaintScreen()
+  paintScreen()
+  local previousBeatIndex = currentBeatIndex
   currentBeatIndex = currentBeatIndex % TOTAL_BEATS + 1
-  updateButtons()
+  for instrument, buttons in ipairs(triggerButtons) do
+    updateButtonColor(instrument, previousBeatIndex)
+    updateButtonColor(instrument, currentBeatIndex)
+  end
+
   for instrument, triggers in pairs(triggersPerInstrument) do
     if triggers[currentBeatIndex] then
       speaker.playNote(instrument)
@@ -121,8 +150,8 @@ function processBeat()
   end
 end
 
-updateButtons()
-repaintScreen()
+initButtons()
+paintScreen()
 local timerId = os.startTimer(TICKS_PER_BEAT * 0.05)
 local quit
 while not quit do
